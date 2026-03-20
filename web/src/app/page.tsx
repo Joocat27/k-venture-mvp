@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import PurchaseButton from "@/components/PurchaseButton";
 
@@ -20,6 +21,8 @@ export default function Home() {
         <div className="hidden sm:block absolute top-40 right-10 lg:right-24 w-24 h-24 bg-[#34C759] rounded-2xl rotate-12 border-4 border-black shadow-[6px_6px_0px_0px_#000] hover:rotate-45 transition-transform duration-500" />
         <div className="hidden sm:block absolute bottom-10 left-20 w-16 h-16 bg-[#FF69B4] rounded-full border-4 border-black shadow-[4px_4px_0px_0px_#000]" />
         
+        <Image src="/hero.png" alt="Wiggle Hero Flower" width={220} height={220} priority className="mb-6 hover:scale-110 hover:-rotate-12 transition-transform duration-300 rounded-full border-[6px] border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] object-cover" />
+
         <div className="inline-block px-6 py-2 mb-10 text-lg font-black text-white bg-[#007AFF] border-4 border-black rounded-full tracking-widest uppercase shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-2 hover:rotate-2 transition-transform">
           New Template Out Now!
         </div>
