@@ -1,63 +1,71 @@
-import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import PurchaseButton from "@/components/PurchaseButton";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 font-sans text-zinc-900 dark:text-zinc-50 pb-20 selection:bg-blue-200 dark:selection:bg-blue-900">
-      {/* Navigation Bar */}
+    <div className="min-h-screen bg-[#FFFDF7] font-sans text-black overflow-hidden selection:bg-[#FF69B4] selection:text-white">
       <Navbar />
 
-      {/* Hero Section */}
-      <main className="pt-40 px-6 max-w-5xl mx-auto flex flex-col items-center text-center">
-        <div className="inline-flex px-4 py-1.5 mb-8 text-xs font-bold text-blue-700 dark:text-blue-300 bg-blue-100 dark:bg-blue-900/40 rounded-full tracking-wide uppercase shadow-sm">
-          Launch Faster, Profit Sooner
+      {/* Marquee Banner */}
+      <div className="mt-[76px] sm:mt-[84px] bg-[#FF3B30] border-b-4 border-black py-4 overflow-hidden whitespace-nowrap flex group">
+        <div className="animate-marquee inline-block font-black text-2xl text-white tracking-widest uppercase group-hover:[animation-play-state:paused]">
+          🎉 LAUNCH FASTER ✦ PROFIT SOONER ✦ THE ULTIMATE K-VENTURE BLUEPRINT 🎉 LAUNCH FASTER ✦ PROFIT SOONER ✦ THE ULTIMATE K-VENTURE BLUEPRINT 🎉 LAUNCH FASTER ✦ PROFIT SOONER ✦ THE ULTIMATE K-VENTURE BLUEPRINT
         </div>
-        <h1 className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tight mb-8 leading-[1.1]">
-          Unlock Premium <br className="hidden sm:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600">
-            SaaS Blueprints
-          </span>
-        </h1>
-        <p className="max-w-2xl text-lg sm:text-xl text-zinc-500 dark:text-zinc-400 mb-12 leading-relaxed">
-          Skip the extensive setup. Download high-converting templates fully integrated with Stripe, Firebase, and Kakaopay. Designed by global indie hackers.
-        </p>
+      </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto px-4 sm:px-0">
-          <PurchaseButton />
-          <button className="px-8 py-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-full font-bold text-lg transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 w-full sm:w-auto shadow-sm">
-            View Live Demo
-          </button>
+      {/* Hero Section */}
+      <main className="px-6 pb-20 pt-24 sm:pt-32 max-w-6xl mx-auto flex flex-col items-center text-center relative">
+        {/* Floating Abstract Shapes */}
+        <div className="hidden sm:block absolute top-10 left-10 lg:left-24 w-24 h-24 bg-[#FFCC00] rounded-full border-4 border-black shadow-[6px_6px_0px_0px_#000] animate-bounce" style={{ animationDuration: '3s' }} />
+        <div className="hidden sm:block absolute top-40 right-10 lg:right-24 w-24 h-24 bg-[#34C759] rounded-2xl rotate-12 border-4 border-black shadow-[6px_6px_0px_0px_#000] hover:rotate-45 transition-transform duration-500" />
+        <div className="hidden sm:block absolute bottom-10 left-20 w-16 h-16 bg-[#FF69B4] rounded-full border-4 border-black shadow-[4px_4px_0px_0px_#000]" />
+        
+        <div className="inline-block px-6 py-2 mb-10 text-lg font-black text-white bg-[#007AFF] border-4 border-black rounded-full tracking-widest uppercase shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-2 hover:rotate-2 transition-transform">
+          New Template Out Now!
         </div>
         
-        {/* Trust Indicators */}
-        <div className="mt-20 pt-10 border-t border-zinc-200/50 dark:border-zinc-800/50 w-full px-6">
-          <p className="text-xs text-zinc-400 dark:text-zinc-500 mb-8 uppercase tracking-widest font-bold">Trusted by founders building on</p>
-          <div className="flex flex-wrap justify-center items-center gap-10 sm:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-            <div className="font-extrabold text-2xl tracking-tighter">Stripe</div>
-            <div className="font-bold text-xl tracking-widest">VERCEL</div>
-            <div className="font-bold text-xl text-orange-500">Firebase</div>
-            <div className="font-black text-xl text-yellow-500">KakaoPay</div>
-          </div>
+        <h1 className="text-6xl sm:text-7xl md:text-9xl font-black tracking-tighter mb-10 leading-[1.05] uppercase">
+          MAKE <br className="hidden sm:block" /> 
+          <span className="text-[#FFFDF7] relative inline-block px-4 py-2 sm:px-6 sm:py-4 bg-[#FF3B30] border-4 sm:border-8 border-black shadow-[6px_6px_0px_0px_#000] sm:shadow-[12px_12px_0px_0px_#000] transform -rotate-3 hover:translate-x-2 transition-transform">
+            PROFIT
+          </span> 
+          <br className="hidden sm:block"/> TODAY.
+        </h1>
+        
+        <p className="max-w-3xl text-xl sm:text-3xl font-extrabold text-black/80 mb-16 leading-tight">
+          Eye-catching, bold, and brilliantly minimal. 
+        </p>
+
+        <div className="relative z-10 w-full flex justify-center mt-4">
+          <PurchaseButton />
         </div>
       </main>
 
-      {/* Features Outline */}
-      <section className="mt-32 max-w-6xl mx-auto px-6 grid sm:grid-cols-3 gap-8">
-        {[
-          { icon: "M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z", title: "Mobile Optimized", desc: "Designed API-first and mobile-first. Achieves 90%+ conversion rates on all major devices." },
-          { icon: "M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z", title: "Monetization Ready", desc: "Native API integration with payment gateways. Start receiving funds from day one." },
-          { icon: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4", title: "Clean Architecture", desc: "Built with bleeding-edge Next.js 15, TailwindCSS 4, and absolute best practices." }
-        ].map((feature, i) => (
-          <div key={i} className="p-8 rounded-[2rem] bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800/80 shadow-sm hover:shadow-xl transition-all duration-300 group">
-            <div className="w-14 h-14 rounded-2xl bg-blue-50 dark:bg-blue-900/20 mb-6 flex items-center justify-center text-blue-600 group-hover:scale-110 group-hover:rotate-3 transition-transform">
-              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={feature.icon} /></svg>
-            </div>
-            <h3 className="text-xl font-extrabold mb-3 tracking-tight">{feature.title}</h3>
-            <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed font-medium">{feature.desc}</p>
-          </div>
-        ))}
+      {/* Colorful Features Section */}
+      <section className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8 pb-32">
+        <div className="p-10 rounded-[2.5rem] bg-[#FFCC00] border-4 border-black shadow-[8px_8px_0px_0px_#000] transform transition-transform hover:-translate-y-2 hover:rotate-2">
+          <div className="text-7xl mb-6">📱</div>
+          <h3 className="text-3xl font-black mb-4 uppercase tracking-tight">Mobile Pop</h3>
+          <p className="font-bold text-xl text-black/80 leading-snug">Looks absolutely stunning on every screen. Built for high contrast & high conversion.</p>
+        </div>
+        
+        <div className="p-10 rounded-[2.5rem] bg-[#FF69B4] border-4 border-black shadow-[8px_8px_0px_0px_#000] transform transition-transform hover:-translate-y-2 hover:-rotate-1">
+          <div className="text-7xl mb-6 flex space-x-2">💳 <span className="animate-pulse">✨</span></div>
+          <h3 className="text-3xl font-black mb-4 uppercase tracking-tight text-white">KakaoPay Hit</h3>
+          <p className="font-bold text-xl text-white/90 leading-snug">Native KakaoPay integration. Stop configuring complicated setups & start selling.</p>
+        </div>
+        
+        <div className="p-10 rounded-[2.5rem] bg-[#34C759] border-4 border-black shadow-[8px_8px_0px_0px_#000] transform transition-transform hover:-translate-y-2 hover:rotate-1">
+          <div className="text-7xl mb-6">🔥</div>
+          <h3 className="text-3xl font-black mb-4 uppercase tracking-tight">Firebase Lock</h3>
+          <p className="font-bold text-xl text-black/80 leading-snug">Google Login, user tracking, and premium database gatekeeping built-in natively.</p>
+        </div>
       </section>
+      
+      {/* Footer */}
+      <footer className="border-t-4 border-black bg-white py-12 text-center font-bold uppercase tracking-widest border-b-8">
+        © 2026 K-Venture Builder. Crafted with 🔥 and 🌻.
+      </footer>
     </div>
   );
 }

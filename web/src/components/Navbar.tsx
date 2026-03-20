@@ -9,7 +9,6 @@ export default function Navbar() {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
-  // 현재 로그인 상태 확인
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -24,7 +23,6 @@ export default function Navbar() {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
       
-      // Firestore에 유저 정보가 없으면 새로 생성 (활동 로그/결제 상태용)
       const userRef = doc(db, "users", user.uid);
       const userSnap = await getDoc(userRef);
       if (!userSnap.exists()) {
@@ -46,19 +44,21 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 backdrop-blur-md bg-white/70 dark:bg-black/70 border-b border-zinc-200/50 dark:border-zinc-800/50">
-      <div className="flex items-center gap-3 font-extrabold text-xl tracking-tighter">
-        <div className="w-7 h-7 rounded-sm bg-gradient-to-br from-blue-600 to-indigo-500 shadow-inner flex items-center justify-center text-white text-sm">K</div>
-        K-Venture
+    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-[#FFFDF7] border-b-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+      <div className="flex items-center gap-3 font-black text-2xl sm:text-3xl tracking-tighter uppercase cursor-pointer hover:scale-105 transition-transform duration-300">
+        <div className="w-10 h-10 rounded-full border-4 border-black bg-[#FFCC00] flex items-center justify-center text-black text-2xl transform -rotate-12 hover:rotate-45 transition-transform duration-500">🌻</div>
+        K-VENTURE
       </div>
-      <div className="flex items-center gap-4 text-sm font-medium">
+      <div className="flex items-center gap-4 text-lg font-black uppercase text-black">
         {!loading && (
           user ? (
             <>
-              <span className="hidden sm:block text-zinc-500 font-semibold">{user.displayName}</span>
+              <span className="hidden sm:inline-block px-4 py-1.5 bg-[#34C759] text-white border-2 border-black rounded-full shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                {user.displayName}
+              </span>
               <button 
                 onClick={handleSignOut}
-                className="text-zinc-500 hover:text-red-500 transition-colors"
+                className="hover:text-[#FF3B30] hover:-translate-y-1 transition-transform"
               >
                 Sign Out
               </button>
@@ -66,15 +66,12 @@ export default function Navbar() {
           ) : (
             <button 
               onClick={handleSignIn}
-              className="hidden sm:block text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors"
+              className="px-6 py-2 bg-[#FF69B4] hover:bg-[#FF3B30] text-white tracking-widest border-4 border-black rounded-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[3px] hover:translate-y-[3px] transition-all"
             >
               Sign In
             </button>
           )
         )}
-        <button className="px-5 py-2.5 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-full hover:scale-105 active:scale-95 transition-all duration-200 shadow-md font-semibold">
-          Get Access
-        </button>
       </div>
     </nav>
   );
